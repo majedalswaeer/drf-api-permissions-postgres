@@ -7,11 +7,11 @@ from .models import Game
 from .serializers import GameSerializer
 
 class GamesList(ListCreateAPIView):
-    permission_classes =(IsAuthorOrReadOnly,)
+    permission_classes =(IsAuthenticatedOrReadOnly,)
     queryset = Game.objects.all()
     serializer_class = GameSerializer
 
 class GamesDetail(RetrieveUpdateDestroyAPIView):
-    permission_classes =(IsAuthorOrReadOnly,)
+    permission_classes =(IsAuthenticatedOrReadOnly,)
     queryset = Game.objects.all()
     serializer_class = GameSerializer
